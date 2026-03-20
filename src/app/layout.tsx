@@ -2,6 +2,10 @@ import type { Metadata } from "next"
 import { PropsWithChildren } from "react"
 
 import "@/shared/config/styles/index.css"
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
     title: {
@@ -13,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
             <body className="flex min-h-full flex-col" suppressHydrationWarning>
                 {children}
             </body>
