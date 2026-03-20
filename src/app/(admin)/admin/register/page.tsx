@@ -1,5 +1,11 @@
 import { SignupForm } from "./signup-form"
 
 export default function RegisterPage() {
-    return <SignupForm />
+    return (
+        <div className="flex min-h-screen w-full items-center justify-center">
+            <div className="w-full max-w-112.5">
+                <SignupForm />
+            </div>
+        </div>
+    )
 }

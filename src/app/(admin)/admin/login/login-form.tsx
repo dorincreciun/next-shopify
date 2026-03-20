@@ -1,9 +1,9 @@
-import { cn } from "@/lib/utils"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@shared/ui/card"
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "@shared/ui/field"
 import { Input } from "@shared/ui/input"
 import { Button } from "@shared/ui/button"
 import Link from "next/link"
+import { cn } from "@shared/lib"
 
 export function LoginForm({ className, ...props }: React.ComponentProps<"div">) {
     return (

@@ -1,5 +1,6 @@
 import { PropsWithChildren } from "react"
 import type { Metadata } from "next"
+import { TooltipProvider } from "@shared/ui/tooltip"
 
 export const metadata: Metadata = {
     title: "Admin",
@@ -7,9 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function RootAdminLayout({ children }: PropsWithChildren) {
-    return (
-        <div className="flex size-full min-h-screen items-center justify-center">
-            <div className="w-full max-w-112.5">{children}</div>
-        </div>
-    )
+    return <>{children}</>
 }
