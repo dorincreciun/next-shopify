@@ -1,3 +1,5 @@
+import { SignupForm } from "./signup-form"
+
 export default function RegisterPage() {
-    return <div>Register Form</div>
+    return <SignupForm />
 }
