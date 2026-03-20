@@ -1,5 +1,13 @@
 import { PropsWithChildren } from "react"
 
 export default function DashboardLayout({ children }: PropsWithChildren) {
-    return <div>{children}</div>
+    return (
+        <div>
+            <aside>Sidebar</aside>
+            <div>
+                <header>Header</header>
+                {children}
+            </div>
+        </div>
+    )
 }

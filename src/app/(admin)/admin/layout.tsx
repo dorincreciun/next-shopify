@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 }
 
 export default function RootAdminLayout({ children }: PropsWithChildren) {
-    return <div>{children}</div>
+    return <div className="size-full min-h-screen">{children}</div>
 }

@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 }
 
 export default function RootClientLayout({ children }: PropsWithChildren) {
-    return <div>{children}</div>
+    return <div className="size-full min-h-screen">{children}</div>
 }
