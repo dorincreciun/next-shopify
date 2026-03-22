@@ -1,9 +1,14 @@
+"use client"
+
 import { Button, Field, FieldDescription, FieldGroup, FieldLabel, Input } from "@shared/ui"
 import Link from "next/link"
+import { useActionState } from "react"
+import { signIn } from "@app/actions"
 
 export const Form = () => {
+    const [state, action, pending] = useActionState(signIn, undefined)
     return (
-        <form>
+        <form action={action}>
             <FieldGroup>
                 <Field>
                     <FieldLabel htmlFor="name">Full Name</FieldLabel>
@@ -29,7 +34,9 @@ export const Form = () => {
                 </Field>
                 <FieldGroup>
                     <Field>
-                        <Button type="submit">Create Account</Button>
+                        <Button type="submit" disabled={pending}>
+                            Create Account
+                        </Button>
                         <Button variant="outline" type="button">
                             Sign up with Google
                         </Button>
