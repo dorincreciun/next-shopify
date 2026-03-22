@@ -8,9 +8,10 @@ datasource db {
 }
 
 model User {
-  id            Int    @id @default(dbgenerated())
-  email         String @unique
-  password_hash String
+  id             Int    @id @default(autoincrement())
+  fullName       String @map("full_name")
+  email          String @unique
+  hashedPassword String @map("password")
 
   @@map("users")
 }
