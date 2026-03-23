@@ -9,6 +9,7 @@ import { hash } from "bcryptjs"
 import { randomInt } from "node:crypto"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
+import { sendEmail } from "@shared/lib"
 
 type SignUpState = FormState<SignUpSchema>
 
@@ -58,6 +59,12 @@ export async function signUp(state: SignUpState, formData: FormData): Promise<Si
             secure: true,
             maxAge: 60 * 15,
             path: "/",
+        })
+
+        await sendEmail({
+            to: data.email,
+            subject: "Codul tău de verificare",
+            html: `<h1>Salut!</h1><p>Codul tău este: <b>${verifyToken.split("").join("-")}</b></p>`,
         })
 
         /*        return {
