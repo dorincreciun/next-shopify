@@ -3,10 +3,10 @@
 import { Button, Field, FieldGroup, FieldLabel, Input } from "@shared/ui"
 import Link from "next/link"
 import { useActionState } from "react"
-import { signUp } from "@app/actions"
+import { register } from "@app/actions"
 
 export const Form = () => {
-    const [state, action, pending] = useActionState(signUp, undefined)
+    const [state, action, pending] = useActionState(register, undefined)
 
     return (
         <form action={action} noValidate className="space-y-6">

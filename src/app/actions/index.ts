@@ -1,3 +1,3 @@
-export * from "./auth/sign-up"
-export * from "./auth/sign-in"
-export * from "./auth/verify"
+export * from "./auth/register"
+export * from "./auth/login"
+export * from "./auth/confirm-email"

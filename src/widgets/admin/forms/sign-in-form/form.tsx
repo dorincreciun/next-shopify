@@ -3,10 +3,10 @@
 import Link from "next/link"
 import { Button, Field, FieldDescription, FieldGroup, FieldLabel, Input } from "@shared/ui"
 import { useActionState } from "react"
-import { signIn } from "@app/actions"
+import { login } from "@app/actions"
 
 export const Form = () => {
-    const [state, action, pending] = useActionState(signIn, undefined)
+    const [state, action, pending] = useActionState(login, undefined)
     return (
         <form action={action}>
             <FieldGroup>
