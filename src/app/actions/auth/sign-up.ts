@@ -1,43 +1,76 @@
 "use server"
 
-import { SignUpFormState, signUpSchema } from "@shared/validators"
+import { signUpSchema, SignUpSchema } from "@shared/schemas"
+import { FormState } from "@shared/types"
+import { validateFormFields } from "@shared/utils"
 import prisma from "@shared/lib/prisma"
-import bcrypt from "bcryptjs"
+import { AUTH_MESSAGES } from "@shared/constants/auth.messages"
+import { hash } from "bcryptjs"
+import { randomInt } from "node:crypto"
+import { cookies } from "next/headers"
+import { redirect } from "next/navigation"
 
-export async function signUp(state: SignUpFormState, formData: FormData): Promise<SignUpFormState> {
-    const rawData = Object.fromEntries(formData.entries())
-    const validatedFields = signUpSchema.safeParse(rawData)
+type SignUpState = FormState<SignUpSchema>
 
-    if (!validatedFields.success) {
+export async function signUp(state: SignUpState, formData: FormData): Promise<SignUpState> {
+    const result = validateFormFields(signUpSchema, formData)
+
+    if (!result.success) {
         return {
-            errors: validatedFields.error.flatten().fieldErrors,
+            errors: result.error,
+            success: false,
+            message: result.message,
         }
     }
 
-    const { fullName, email, password } = validatedFields.data
+    const { data } = result
 
     try {
         const existingUser = await prisma.user.findUnique({
-            where: { email },
+            where: { email: data.email },
         })
 
         if (existingUser) {
             return {
-                errors: { email: ["Acest email este deja înregistrat."] },
+                errors: { email: [AUTH_MESSAGES.EMAIL.ALREADY_EXISTS] },
+                success: false,
             }
         }
 
-        const hashedPassword = await bcrypt.hash(password, 12)
+        const hashedPassword = await hash(data.password, 12)
+        const verifyToken = randomInt(100000, 999999).toString()
 
         await prisma.user.create({
-            data: { email, hashedPassword, fullName },
+            data: {
+                email: data.email,
+                hashedPassword: hashedPassword,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                verifyToken: verifyToken,
+                isVerified: false,
+            },
         })
 
-        return { message: "Contul a fost creat cu succes." }
-    } catch (error) {
-        console.error("[signUp]", error)
+        const cookie = await cookies()
+        const cookieName = "pending_verification_email"
+        cookie.set(cookieName, data.email, {
+            httpOnly: true,
+            secure: true,
+            maxAge: 60 * 15,
+            path: "/",
+        })
+
+        /*        return {
+            success: true,
+            message: AUTH_MESSAGES.SUCCESS.REGISTERED,
+        }*/
+    } catch (e) {
+        console.error("SignUp Error:", e)
         return {
-            errors: { _form: ["Ceva nu a mers bine. Încearcă din nou."] },
+            success: false,
+            message: AUTH_MESSAGES.GENERAL.ERROR,
         }
     }
+
+    redirect("/admin/verify")
 }

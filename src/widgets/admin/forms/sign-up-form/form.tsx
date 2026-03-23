@@ -1,14 +1,6 @@
 "use client"
 
-import {
-    Button,
-    Field,
-    FieldDescription,
-    FieldError,
-    FieldGroup,
-    FieldLabel,
-    Input,
-} from "@shared/ui"
+import { Button, Field, FieldGroup, FieldLabel, Input } from "@shared/ui"
 import Link from "next/link"
 import { useActionState } from "react"
 import { signUp } from "@app/actions"
@@ -17,67 +9,131 @@ export const Form = () => {
     const [state, action, pending] = useActionState(signUp, undefined)
 
     return (
-        <form action={action}>
-            <FieldGroup>
-                <Field data-invalid={Boolean(state?.errors?.fullName)}>
-                    <FieldLabel htmlFor="fullName">Full Name</FieldLabel>
-                    <Input
-                        id="fullName"
-                        name="fullName"
-                        type="text"
-                        placeholder="John Doe"
-                        required
-                    />
-                    {state?.errors?.fullName && <FieldError>{state.errors.fullName[0]}</FieldError>}
-                </Field>
+        <form action={action} noValidate className="space-y-6">
+            <FieldGroup className="grid max-w-md gap-4">
+                {/* Rândul 1: Prenume și Nume */}
+                <div className="grid grid-cols-2 gap-4">
+                    <Field>
+                        <FieldLabel htmlFor="firstName">
+                            First Name <span className="text-destructive">*</span>
+                        </FieldLabel>
+                        <Input
+                            id="firstName"
+                            name="firstName"
+                            placeholder="Jordan"
+                            defaultValue="Jordan" // Schimbat din value
+                            required
+                            aria-invalid={!!state?.errors?.firstName}
+                        />
+                        {state?.errors?.firstName && (
+                            <p className="text-destructive mt-1 text-sm">
+                                {state.errors.firstName[0]}
+                            </p>
+                        )}
+                    </Field>
 
-                <Field data-invalid={Boolean(state?.errors?.email)}>
-                    <FieldLabel htmlFor="email">Email</FieldLabel>
+                    <Field>
+                        <FieldLabel htmlFor="lastName">
+                            Last Name <span className="text-destructive">*</span>
+                        </FieldLabel>
+                        <Input
+                            id="lastName"
+                            name="lastName"
+                            placeholder="Lee"
+                            defaultValue="Lee" // Schimbat din value
+                            required
+                            aria-invalid={!!state?.errors?.lastName}
+                        />
+                        {state?.errors?.lastName && (
+                            <p className="text-destructive mt-1 text-sm">
+                                {state.errors.lastName[0]}
+                            </p>
+                        )}
+                    </Field>
+                </div>
+
+                {/* Rândul 2: Email */}
+                <Field>
+                    <FieldLabel htmlFor="email">
+                        Email Address <span className="text-destructive">*</span>
+                    </FieldLabel>
                     <Input
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="m@example.com"
+                        placeholder="jordan.lee@example.com"
+                        defaultValue="jordan.lee@example.com" // Schimbat din value
                         required
+                        aria-invalid={!!state?.errors?.email}
                     />
-                    <FieldDescription>
-                        We&apos;ll use this to contact you. We will not share your email with anyone
-                        else.
-                    </FieldDescription>
-                    {state?.errors?.email && <FieldError>{state.errors.email[0]}</FieldError>}
-                </Field>
-
-                <Field data-invalid={Boolean(state?.errors?.password)}>
-                    <FieldLabel htmlFor="password">Password</FieldLabel>
-                    <Input id="password" name="password" type="password" required />
-                    <FieldDescription>Must be at least 8 characters long.</FieldDescription>
-                    {state?.errors?.password && <FieldError>{state.errors.password[0]}</FieldError>}
-                </Field>
-
-                <Field data-invalid={Boolean(state?.errors?.confirmPassword)}>
-                    <FieldLabel htmlFor="confirmPassword">Confirm Password</FieldLabel>
-                    <Input id="confirmPassword" name="confirmPassword" type="password" required />
-                    <FieldDescription>Please confirm your password.</FieldDescription>
-                    {state?.errors?.confirmPassword && (
-                        <FieldError>{state.errors.confirmPassword[0]}</FieldError>
+                    {state?.errors?.email && (
+                        <p className="text-destructive mt-1 text-sm">{state.errors.email[0]}</p>
                     )}
                 </Field>
 
-                {state?.errors?._form && <FieldError>{state.errors._form[0]}</FieldError>}
+                {/* Rândul 3: Parola */}
+                <Field>
+                    <FieldLabel htmlFor="password">
+                        Password <span className="text-destructive">*</span>
+                    </FieldLabel>
+                    <Input
+                        id="password"
+                        name="password"
+                        type="password"
+                        placeholder="••••••••"
+                        defaultValue="Password1234!" // Schimbat din value
+                        required
+                        aria-invalid={!!state?.errors?.password}
+                    />
+                    {state?.errors?.password && (
+                        <p className="text-destructive mt-1 text-sm">{state.errors.password[0]}</p>
+                    )}
+                </Field>
 
-                <FieldGroup>
-                    <Field>
-                        <Button type="submit" disabled={pending}>
-                            {pending ? "Se creează..." : "Create Account"}
-                        </Button>
-                        <Button variant="outline" type="button">
-                            Sign up with Google
-                        </Button>
-                        <FieldDescription className="px-6 text-center">
-                            Already have an account? <Link href="/admin/login">Sign in</Link>
-                        </FieldDescription>
-                    </Field>
-                </FieldGroup>
+                {/* Rândul 4: Confirmare Parolă */}
+                <Field>
+                    <FieldLabel htmlFor="confirmPassword">
+                        Confirm Password <span className="text-destructive">*</span>
+                    </FieldLabel>
+                    <Input
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        type="password"
+                        placeholder="••••••••"
+                        defaultValue="Password1234!" // Schimbat din value
+                        required
+                        aria-invalid={!!state?.errors?.confirmPassword}
+                    />
+                    {state?.errors?.confirmPassword && (
+                        <p className="text-destructive mt-1 text-sm">
+                            {state.errors.confirmPassword[0]}
+                        </p>
+                    )}
+                </Field>
+
+                {/* Mesaj global de eroare */}
+                {state?.message && !state?.success && (
+                    <div className="bg-destructive/15 text-destructive mt-2 rounded-md p-3 text-sm">
+                        {state.message}
+                    </div>
+                )}
+
+                {/* Spațiere și Acțiuni (Buton + Link) */}
+                <div className="space-y-4 pt-4">
+                    <Button type="submit" className="w-full" disabled={pending}>
+                        {pending ? "Creating account..." : "Sign Up"}
+                    </Button>
+
+                    <p className="text-muted-foreground text-center text-sm">
+                        Already have an account?{" "}
+                        <Link
+                            href="/admin/login"
+                            className="text-primary font-medium underline-offset-4 hover:underline"
+                        >
+                            Sign in
+                        </Link>
+                    </p>
+                </div>
             </FieldGroup>
         </form>
     )
