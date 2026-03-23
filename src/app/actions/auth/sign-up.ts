@@ -47,7 +47,6 @@ export async function signUp(state: SignUpState, formData: FormData): Promise<Si
                 hashedPassword: hashedPassword,
                 firstName: data.firstName,
                 lastName: data.lastName,
-                verifyToken: verifyToken,
                 isVerified: false,
             },
         })

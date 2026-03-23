@@ -13,6 +13,12 @@ enum UserRole {
   MODERATOR
 }
 
+enum VerificationTokenType {
+  EMAIL_VERIFICATION
+  PASSWORD_RESET
+  TWO_FACTOR
+}
+
 model User {
   id             Int      @id @default(autoincrement())
   email          String   @unique
@@ -21,14 +27,26 @@ model User {
   lastName       String   @map("last_name")
   role           UserRole @default(USER)
 
-  sessions    Session[]
-  isVerified  Boolean   @default(false) @map("is_verified")
-  verifyToken String?   @map("verify_token")
+  sessions           Session[]
+  isVerified         Boolean             @default(false) @map("is_verified")
+  verificationTokens VerificationToken[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("users")
+}
+
+model VerificationToken {
+  id        Int                   @id @default(autoincrement())
+  token     String                @unique
+  type      VerificationTokenType
+  expiresAt DateTime              @map("expires_at")
+  userId    Int                   @map("user_id")
+  user      User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, type])
+  @@map("verification_tokens")
 }
 
 model Session {
