@@ -3,15 +3,15 @@ import type {Metadata} from "next";
 
 export const metadata: Metadata = {
     title: {
-        template: "Shopify | %s",
-        default: "Shopify"
+        template: "Dashboard | %s",
+        default: "Dashboard"
     },
 };
 
-interface ClientLayoutProps {
+interface DahsboardLayoutProps {
     children: ReactNode
 }
 
-export default function ClientLayout({children}: ClientLayoutProps) {
+export default function DashboardLayout({children}: DahsboardLayoutProps) {
     return <>{children}</>
 }
