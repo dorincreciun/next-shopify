@@ -18,12 +18,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: add reusable UI components and routing constants&#10;&#10;- Introduce common UI components: `Card`, `Field`, `Input`, `InputOTP`, `Label`, and `Separator` for structured and consistent UI design.&#10;- Add `LoginForm`, `RegisterForm`, and `VerifyForm` for authentication pages.&#10;- Extend `Routing` constants for dashboard-related routes.&#10;- Update admin authentication layout with centered alignment.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +145,7 @@
       <workItem from="1774013760090" duration="4868000" />
       <workItem from="1774245381309" duration="6707000" />
       <workItem from="1774252643825" duration="17319000" />
-      <workItem from="1774431594216" duration="13644000" />
+      <workItem from="1774431594216" duration="14064000" />
     </task>
     <task id="LOCAL-00001" summary="feat: establish project architecture and initial structure&#10;&#10;- Remove default Next.js setup and replace with custom structure based on Feature Slice Design.&#10;- Setup clear separation between client, admin, and backend layers.&#10;- Add Tailwind CSS for styling and integrate `prettier-plugin-tailwindcss`.&#10;- Introduce path aliases for improved imports (`tsconfig.json`).&#10;- Create foundational folders for `features`, `shared`, and `server`.&#10;- Add initial dummy pages for both client and admin areas.&#10;- Include project-specific organization guidelines in `README.md`.">
       <option name="closed" value="true" />
@@ -248,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774446372361</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations.">
+      <option name="closed" value="true" />
+      <created>1774449736533</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1774449736533</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +266,7 @@
     <MESSAGE value="feat: implement OTP-based account verification and update user Prisma model" />
     <MESSAGE value="feat: add mailer library" />
     <MESSAGE value="feat: add reusable UI components and routing constants&#10;&#10;- Introduce common UI components: `Card`, `Field`, `Input`, `InputOTP`, `Label`, and `Separator` for structured and consistent UI design.&#10;- Add `LoginForm`, `RegisterForm`, and `VerifyForm` for authentication pages.&#10;- Extend `Routing` constants for dashboard-related routes.&#10;- Update admin authentication layout with centered alignment." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add reusable UI components and routing constants&#10;&#10;- Introduce common UI components: `Card`, `Field`, `Input`, `InputOTP`, `Label`, and `Separator` for structured and consistent UI design.&#10;- Add `LoginForm`, `RegisterForm`, and `VerifyForm` for authentication pages.&#10;- Extend `Routing` constants for dashboard-related routes.&#10;- Update admin authentication layout with centered alignment." />
+    <MESSAGE value="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations." />
   </component>
 </project>
