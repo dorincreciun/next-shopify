@@ -7,11 +7,25 @@ datasource db {
 }
 
 model User {
-  id        String @id @default(uuid(7))
-  email     String @unique
+  id        String    @id @default(uuid(7))
+  email     String    @unique
   password  String
-  lastName  String @map("last_name")
-  firstName String @map("first_name")
+  lastName  String    @map("last_name")
+  firstName String    @map("first_name")
+  sessions  Session[]
 
   @@map("users")
+}
+
+model Session {
+  id     String @id @default(uuid(7))
+  token  String @unique
+  userId String @map("user_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  expiresAt DateTime @map("expires_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
 }
