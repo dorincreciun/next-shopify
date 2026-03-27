@@ -18,14 +18,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations." />
+    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations.">
+      <change afterPath="$PROJECT_DIR$/src/app/actions/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/actions/auth/login.action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/actions/auth/register.action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/actions/auth/verify.action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constants/validation-messages.constant.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schemas/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schemas/login.schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schemas/register.schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schemas/verify.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/login-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/login-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/register-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/register-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/routing.constant.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="121" />
+    <option name="cachedIndexableFilesCount" value="59" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -56,6 +74,9 @@
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1,
@@ -97,10 +118,10 @@
 }</component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1775973688591" />
-    <option name="spentUsd" value="0.266963" />
+    <option name="spentUsd" value="0.33764184" />
   </component>
   <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="3" />
+    <option name="suspendCountdown" value="0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -115,7 +136,7 @@
       <recent name="D:\next-shopify\src\app\(admin)" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.db:seed">
+  <component name="RunManager" selected="npm.db:generate">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
     </configuration>
@@ -145,7 +166,7 @@
       <workItem from="1774013760090" duration="4868000" />
       <workItem from="1774245381309" duration="6707000" />
       <workItem from="1774252643825" duration="17319000" />
-      <workItem from="1774431594216" duration="14064000" />
+      <workItem from="1774431594216" duration="17840000" />
     </task>
     <task id="LOCAL-00001" summary="feat: establish project architecture and initial structure&#10;&#10;- Remove default Next.js setup and replace with custom structure based on Feature Slice Design.&#10;- Setup clear separation between client, admin, and backend layers.&#10;- Add Tailwind CSS for styling and integrate `prettier-plugin-tailwindcss`.&#10;- Introduce path aliases for improved imports (`tsconfig.json`).&#10;- Create foundational folders for `features`, `shared`, and `server`.&#10;- Add initial dummy pages for both client and admin areas.&#10;- Include project-specific organization guidelines in `README.md`.">
       <option name="closed" value="true" />
@@ -251,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774449736533</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations.">
+      <option name="closed" value="true" />
+      <created>1774450295992</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1774450295992</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

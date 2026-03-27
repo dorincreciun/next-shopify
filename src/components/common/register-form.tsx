@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import Link from "next/link";
-import {Routing} from "@/constants";
+import {RoutingConstant} from "@/constants";
 
 export function RegisterForm({ ...props }: React.ComponentProps<typeof Card>) {
     return (
@@ -66,7 +66,7 @@ export function RegisterForm({ ...props }: React.ComponentProps<typeof Card>) {
                                     Sign up with Google
                                 </Button>
                                 <FieldDescription className="px-6 text-center">
-                                    Already have an account? <Link href={Routing.DASHBOARD_LOGIN}>Sign in</Link>
+                                    Already have an account? <Link href={RoutingConstant.DASHBOARD_LOGIN}>Sign in</Link>
                                 </FieldDescription>
                             </Field>
                         </FieldGroup>

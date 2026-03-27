@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import Link from "next/link";
-import {Routing} from "@/constants";
+import {RoutingConstant} from "@/constants";
 
 export function LoginForm({
                               className,
@@ -60,7 +60,7 @@ export function LoginForm({
                                     Login with Google
                                 </Button>
                                 <FieldDescription className="text-center">
-                                    Don&apos;t have an account? <Link href={Routing.DASHBOARD_REGISTER}>Sign up</Link>
+                                    Don&apos;t have an account? <Link href={RoutingConstant.DASHBOARD_REGISTER}>Sign up</Link>
                                 </FieldDescription>
                             </Field>
                         </FieldGroup>
