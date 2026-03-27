@@ -18,15 +18,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: modularize authentication feature and shared components&#10;&#10;- Restructure auth-related components under `features/auth`.&#10;- Migrate shared UI elements to `shared/ui`.&#10;- Decouple Zod schemas and actions; remove redundant auth-related schemas and actions.&#10;- Update imports to use new modular directory structure.&#10;- Refactor `LoginForm` and `RegisterForm` to integrate `useActionState` for improved state handling.&#10;- Update path aliases in `components.json` for consistency with the new structure.">
-      <change afterPath="$PROJECT_DIR$/src/server/services/auth.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/services/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/utils/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/utils/validate-form-fields.ts" afterDir="false" />
+    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: add session management and enhance authentication flow&#10;&#10;- Add `Session` model with migrations, including unique token and foreign key reference to `User`.&#10;- Implement session services (`setSession`, `deleteSession`, `generateSessionMetadata`) for token-based authentication.&#10;- Update `User` model to include sessions as a relation.&#10;- Add password hashing and verification utilities using `bcrypt`.&#10;- Introduce shared form validation utility with Zod for consistent input validation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/actions/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/actions/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shared/types/form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/types/form.ts" afterDir="false" />
     </list>
@@ -160,7 +153,7 @@
       <workItem from="1774013760090" duration="4868000" />
       <workItem from="1774245381309" duration="6707000" />
       <workItem from="1774252643825" duration="17319000" />
-      <workItem from="1774431594216" duration="31860000" />
+      <workItem from="1774431594216" duration="33904000" />
     </task>
     <task id="LOCAL-00001" summary="feat: establish project architecture and initial structure&#10;&#10;- Remove default Next.js setup and replace with custom structure based on Feature Slice Design.&#10;- Setup clear separation between client, admin, and backend layers.&#10;- Add Tailwind CSS for styling and integrate `prettier-plugin-tailwindcss`.&#10;- Introduce path aliases for improved imports (`tsconfig.json`).&#10;- Create foundational folders for `features`, `shared`, and `server`.&#10;- Add initial dummy pages for both client and admin areas.&#10;- Include project-specific organization guidelines in `README.md`.">
       <option name="closed" value="true" />
@@ -290,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774599419017</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat: add session management and enhance authentication flow&#10;&#10;- Add `Session` model with migrations, including unique token and foreign key reference to `User`.&#10;- Implement session services (`setSession`, `deleteSession`, `generateSessionMetadata`) for token-based authentication.&#10;- Update `User` model to include sessions as a relation.&#10;- Add password hashing and verification utilities using `bcrypt`.&#10;- Introduce shared form validation utility with Zod for consistent input validation.">
+      <option name="closed" value="true" />
+      <created>1774614257051</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1774614257051</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,6 +320,7 @@
     <MESSAGE value="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations." />
     <MESSAGE value="feat: refactor user model and add authentication features&#10;&#10;- Replace `User` and `Post` tables with a new `users` table using a UUID-based `id` and updated fields.&#10;- Add Zod schemas (`LoginSchema`, `RegisterSchema`, `VerifySchema`) for auth validation.&#10;- Introduce reusable validation messages for consistent input error handling.&#10;- Add auth actions: `loginAction`, `registerAction`, `verifyAction`.&#10;- Rename and refactor `Routing` constants to `RoutingConstant`.&#10;- Update related components (`LoginForm`, `RegisterForm`) to use new constants and validation schemas.&#10;- Add `zod` dependency for schema validation." />
     <MESSAGE value="feat: modularize authentication feature and shared components&#10;&#10;- Restructure auth-related components under `features/auth`.&#10;- Migrate shared UI elements to `shared/ui`.&#10;- Decouple Zod schemas and actions; remove redundant auth-related schemas and actions.&#10;- Update imports to use new modular directory structure.&#10;- Refactor `LoginForm` and `RegisterForm` to integrate `useActionState` for improved state handling.&#10;- Update path aliases in `components.json` for consistency with the new structure." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: modularize authentication feature and shared components&#10;&#10;- Restructure auth-related components under `features/auth`.&#10;- Migrate shared UI elements to `shared/ui`.&#10;- Decouple Zod schemas and actions; remove redundant auth-related schemas and actions.&#10;- Update imports to use new modular directory structure.&#10;- Refactor `LoginForm` and `RegisterForm` to integrate `useActionState` for improved state handling.&#10;- Update path aliases in `components.json` for consistency with the new structure." />
+    <MESSAGE value="feat: add session management and enhance authentication flow&#10;&#10;- Add `Session` model with migrations, including unique token and foreign key reference to `User`.&#10;- Implement session services (`setSession`, `deleteSession`, `generateSessionMetadata`) for token-based authentication.&#10;- Update `User` model to include sessions as a relation.&#10;- Add password hashing and verification utilities using `bcrypt`.&#10;- Introduce shared form validation utility with Zod for consistent input validation." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add session management and enhance authentication flow&#10;&#10;- Add `Session` model with migrations, including unique token and foreign key reference to `User`.&#10;- Implement session services (`setSession`, `deleteSession`, `generateSessionMetadata`) for token-based authentication.&#10;- Update `User` model to include sessions as a relation.&#10;- Add password hashing and verification utilities using `bcrypt`.&#10;- Introduce shared form validation utility with Zod for consistent input validation." />
   </component>
 </project>

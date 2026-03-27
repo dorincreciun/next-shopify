@@ -3,39 +3,32 @@
 import {LoginSchema, RegisterSchema, VerifySchema} from "@/server/validators";
 import type {FormState} from "@/shared/types";
 import prisma from "@/shared/lib/prisma";
-import {cookies} from "next/headers";
 import {validateFormFields} from "@/shared/utils";
-import {generateSessionMetadata, hashPassword} from "@/server/services";
+import {generateSessionMetadata, hashPassword, setSession} from "@/server/services";
 
 export const loginAction = async (state: FormState<LoginSchema>, formData: FormData): Promise<FormState<LoginSchema>> => {
     return undefined
 }
 
 export const registerAction = async (state: FormState<RegisterSchema>, formData: FormData): Promise<FormState<RegisterSchema>> => {
-    const result = validateFormFields(RegisterSchema, formData)
+    const result = validateFormFields(RegisterSchema, formData);
 
     if (!result.success) {
-        return {
-            errors: result.error,
-            messages: result.message,
-        }
+        return { errors: result.error, messages: result.message };
     }
 
-    const {data} = result
+    const { data } = result;
 
     try {
-        const existingUser = await prisma.user.findUnique({
-            where: { email: data.email}
-        })
-
+        const existingUser = await prisma.user.findUnique({ where: { email: data.email } });
         if (existingUser) {
             return { errors: { email: ['Acest email este deja utilizat.'] } };
         }
 
-        const hashedPassword = await hashPassword(data.password)
-        const session = await generateSessionMetadata()
+        const hashedPassword = await hashPassword(data.password);
+        const session = await generateSessionMetadata();
 
-        const newUser = await prisma.user.create({
+        await prisma.user.create({
             data: {
                 email: data.email,
                 password: hashedPassword,
@@ -48,20 +41,14 @@ export const registerAction = async (state: FormState<RegisterSchema>, formData:
                     }
                 }
             }
-        })
+        });
 
-        const cookiesStore = await cookies()
-        cookiesStore.set('session-token', session.token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'lax',
-            expires: session.expiresAt,
-            path: '/',
-        })
-
+        await setSession({ token: session.token, expiresAt: session.expiresAt });
     } catch (e) {
-        console.error(e)
+        return { errors: { form: "Eroare la server. Vă rugăm să reîncercați." } };
     }
+
+    return { messages: "Cont creat cu succes!"};
 }
 
 export const verifyAction = async (state: FormState<VerifySchema>, formData: FormData): Promise<FormState<VerifySchema>> => {
