@@ -2,7 +2,7 @@ import type {Metadata} from "next";
 import "./styles/index.css";
 import {ReactNode} from "react";
 import { Inter } from "next/font/google";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 

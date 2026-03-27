@@ -18,24 +18,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations.">
-      <change afterPath="$PROJECT_DIR$/src/app/actions/auth/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/actions/auth/login.action.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/actions/auth/register.action.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/actions/auth/verify.action.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/validation-messages.constant.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/schemas/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/schemas/login.schema.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/schemas/register.schema.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/schemas/verify.schema.ts" afterDir="false" />
+    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: refactor user model and add authentication features&#10;&#10;- Replace `User` and `Post` tables with a new `users` table using a UUID-based `id` and updated fields.&#10;- Add Zod schemas (`LoginSchema`, `RegisterSchema`, `VerifySchema`) for auth validation.&#10;- Introduce reusable validation messages for consistent input error handling.&#10;- Add auth actions: `loginAction`, `registerAction`, `verifyAction`.&#10;- Rename and refactor `Routing` constants to `RoutingConstant`.&#10;- Update related components (`LoginForm`, `RegisterForm`) to use new constants and validation schemas.&#10;- Add `zod` dependency for schema validation.">
+      <change afterPath="$PROJECT_DIR$/src/features/auth/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/actions/auth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/actions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/validators/auth.schema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/types/form.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/ui/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/login-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/login-form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/register-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/register-form.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/routing.constant.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components.json" beforeDir="false" afterPath="$PROJECT_DIR$/components.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/register/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/verify/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/verify/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/actions/auth/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/actions/auth/login.action.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/actions/auth/register.action.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/actions/auth/verify.action.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/login-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/ui/login-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/register-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/ui/register-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/verify-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/auth/ui/verify-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/field.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/field.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/input-otp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/input-otp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/label.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/label.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/separator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/ui/separator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/routing.constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/constants/routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/validation-messages.constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/constants/validation-messages.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/lib/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/validators/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas/login.schema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas/register.schema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schemas/verify.schema.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +118,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/next-shopify/src/app/(client)&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/next-shopify/src/features/auth/ui&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -125,18 +145,19 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\next-shopify\src\features\auth\ui" />
       <recent name="D:\next-shopify\src\app\(client)" />
       <recent name="D:\next-shopify\src\app\(admin)\admin\dashboard\roles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\next-shopify\src\server" />
+      <recent name="D:\next-shopify\src\features\auth\api" />
+      <recent name="D:\next-shopify\src\shared" />
       <recent name="D:\next-shopify\src\app\(client)" />
       <recent name="D:\next-shopify\src\app\(client)\(home)" />
-      <recent name="D:\next-shopify\public" />
-      <recent name="D:\next-shopify\src\app\styles" />
-      <recent name="D:\next-shopify\src\app\(admin)" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.db:generate">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
     </configuration>
@@ -166,7 +187,7 @@
       <workItem from="1774013760090" duration="4868000" />
       <workItem from="1774245381309" duration="6707000" />
       <workItem from="1774252643825" duration="17319000" />
-      <workItem from="1774431594216" duration="17840000" />
+      <workItem from="1774431594216" duration="22479000" />
     </task>
     <task id="LOCAL-00001" summary="feat: establish project architecture and initial structure&#10;&#10;- Remove default Next.js setup and replace with custom structure based on Feature Slice Design.&#10;- Setup clear separation between client, admin, and backend layers.&#10;- Add Tailwind CSS for styling and integrate `prettier-plugin-tailwindcss`.&#10;- Introduce path aliases for improved imports (`tsconfig.json`).&#10;- Create foundational folders for `features`, `shared`, and `server`.&#10;- Add initial dummy pages for both client and admin areas.&#10;- Include project-specific organization guidelines in `README.md`.">
       <option name="closed" value="true" />
@@ -280,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774450295992</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat: refactor user model and add authentication features&#10;&#10;- Replace `User` and `Post` tables with a new `users` table using a UUID-based `id` and updated fields.&#10;- Add Zod schemas (`LoginSchema`, `RegisterSchema`, `VerifySchema`) for auth validation.&#10;- Introduce reusable validation messages for consistent input error handling.&#10;- Add auth actions: `loginAction`, `registerAction`, `verifyAction`.&#10;- Rename and refactor `Routing` constants to `RoutingConstant`.&#10;- Update related components (`LoginForm`, `RegisterForm`) to use new constants and validation schemas.&#10;- Add `zod` dependency for schema validation.">
+      <option name="closed" value="true" />
+      <created>1774594694478</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1774594694478</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +325,7 @@
     <MESSAGE value="feat: add mailer library" />
     <MESSAGE value="feat: add reusable UI components and routing constants&#10;&#10;- Introduce common UI components: `Card`, `Field`, `Input`, `InputOTP`, `Label`, and `Separator` for structured and consistent UI design.&#10;- Add `LoginForm`, `RegisterForm`, and `VerifyForm` for authentication pages.&#10;- Extend `Routing` constants for dashboard-related routes.&#10;- Update admin authentication layout with centered alignment." />
     <MESSAGE value="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: integrate Prisma ORM and database setup&#10;&#10;- Add Prisma configuration files and schema for PostgreSQL integration.&#10;- Implement initial database migrations to create `User` and `Post` tables with relationships.&#10;- Add database-related npm scripts: `db:generate`, `db:migrate`, `db:seed`, and `db:studio`.&#10;- Include necessary dependencies: `@prisma/client`, `prisma`, and `pg`.&#10;- Update `.idea` configuration files to include database run configurations." />
+    <MESSAGE value="feat: refactor user model and add authentication features&#10;&#10;- Replace `User` and `Post` tables with a new `users` table using a UUID-based `id` and updated fields.&#10;- Add Zod schemas (`LoginSchema`, `RegisterSchema`, `VerifySchema`) for auth validation.&#10;- Introduce reusable validation messages for consistent input error handling.&#10;- Add auth actions: `loginAction`, `registerAction`, `verifyAction`.&#10;- Rename and refactor `Routing` constants to `RoutingConstant`.&#10;- Update related components (`LoginForm`, `RegisterForm`) to use new constants and validation schemas.&#10;- Add `zod` dependency for schema validation." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: refactor user model and add authentication features&#10;&#10;- Replace `User` and `Post` tables with a new `users` table using a UUID-based `id` and updated fields.&#10;- Add Zod schemas (`LoginSchema`, `RegisterSchema`, `VerifySchema`) for auth validation.&#10;- Introduce reusable validation messages for consistent input error handling.&#10;- Add auth actions: `loginAction`, `registerAction`, `verifyAction`.&#10;- Rename and refactor `Routing` constants to `RoutingConstant`.&#10;- Update related components (`LoginForm`, `RegisterForm`) to use new constants and validation schemas.&#10;- Add `zod` dependency for schema validation." />
   </component>
 </project>
