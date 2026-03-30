@@ -1,9 +1,17 @@
-import {ReactNode} from "react";
+import { ReactNode } from "react"
+import type { Metadata } from "next"
 
-interface AuthLayoutProps {
+export const metadata: Metadata = {
+    title: {
+        default: "Authorization",
+        template: "Authorization | %s",
+    },
+}
+
+interface AuthLayout {
     children: ReactNode
 }
 
-export default function AuthLayout({children}: AuthLayoutProps) {
+export default function AuthLayout({ children }: AuthLayout) {
     return <>{children}</>
 }

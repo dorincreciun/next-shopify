@@ -1,17 +1,22 @@
-import {ReactNode} from "react";
-import type {Metadata} from "next";
+import { ReactNode } from "react"
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
     title: {
+        default: "Dashboard",
         template: "Dashboard | %s",
-        default: "Dashboard"
     },
-};
+}
 
-interface DahsboardLayoutProps {
+interface DashboardLayout {
     children: ReactNode
 }
 
-export default function DashboardLayout({children}: DahsboardLayoutProps) {
-    return <>{children}</>
+export default function DashboardLayout({children}: DashboardLayout) {
+    return (
+        <>
+            <aside>sidebar</aside>
+            {children}
+        </>
+    )
 }

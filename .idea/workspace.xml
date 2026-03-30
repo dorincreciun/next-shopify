@@ -18,10 +18,85 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: add session management and enhance authentication flow&#10;&#10;- Add `Session` model with migrations, including unique token and foreign key reference to `User`.&#10;- Implement session services (`setSession`, `deleteSession`, `generateSessionMetadata`) for token-based authentication.&#10;- Update `User` model to include sessions as a relation.&#10;- Add password hashing and verification utilities using `bcrypt`.&#10;- Introduce shared form validation utility with Zod for consistent input validation.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/actions/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/actions/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/types/form.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/types/form.ts" afterDir="false" />
+    <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="feat: improve registration flow with session handling and validation updates&#10;&#10;- Update `registerAction` to include session creation via `setSession` after user registration.&#10;- Replace cookie management with session service for storing session tokens.&#10;- Refactor form validation error handling for improved consistency.&#10;- Update `FormState` type to align `form` error field handling.">
+      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/settings/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(client)/auth/verify/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/errors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/cn.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/db_generate.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/db_migrate.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/db_seed.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/db_studio.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/dev.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20260325141242_init/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20260325142632_init/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20260327065424_change_user_model/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/20260327083113_add_session_model/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/migrations/migration_lock.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/file.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/globe.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/window.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/register/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/verify/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/verify/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(client)/auth/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(client)/auth/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(client)/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(client)/auth/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(client)/auth/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(client)/auth/register/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(client)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(client)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(client)/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/not-found.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/styles/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/styles/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/ui/login-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/ui/register-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/ui/verify-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/actions/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/actions/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/services/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/services/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/validators/auth.schema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/validators/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/constants/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/constants/routing.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/constants/validation-messages.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/lib/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/types/form.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/types/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/card.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/field.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/input-otp.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/input.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/label.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/ui/separator.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/utils/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/utils/validate-form-fields.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,15 +104,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="59" />
+    <option name="cachedIndexableFilesCount" value="76" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -81,14 +156,17 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/next-shopify/src/features/auth/ui&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/next-shopify/src/app/(client)&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.db:generate.executor&quot;: &quot;Run&quot;,
@@ -96,8 +174,8 @@
     &quot;npm.db:seed.executor&quot;: &quot;Run&quot;,
     &quot;npm.db:studio.executor&quot;: &quot;Run&quot;,
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\dorin.creciun\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\next-shopify\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\next-shopify\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -111,35 +189,31 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\next-shopify\src\features\auth\ui" />
       <recent name="D:\next-shopify\src\app\(client)" />
+      <recent name="D:\next-shopify\src\features\auth\ui" />
       <recent name="D:\next-shopify\src\app\(admin)\admin\dashboard\roles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\next-shopify\src\app\(client)" />
+      <recent name="D:\next-shopify\src\config\styles" />
+      <recent name="D:\next-shopify\public" />
       <recent name="D:\next-shopify\src\server" />
       <recent name="D:\next-shopify\src\features\auth\api" />
-      <recent name="D:\next-shopify\src\shared" />
-      <recent name="D:\next-shopify\src\app\(client)" />
-      <recent name="D:\next-shopify\src\app\(client)\(home)" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.db:studio">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Next.js: debug client-side" />
       <item itemvalue="npm.dev" />
-      <item itemvalue="npm.db:seed" />
-      <item itemvalue="npm.db:generate" />
-      <item itemvalue="npm.db:migrate" />
-      <item itemvalue="npm.db:studio" />
     </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.32098.39" />
+        <option value="bundled-js-predefined-d6986cc7102b-3bd3a6803838-JavaScript-WS-261.22158.274" />
       </set>
     </attachedChunks>
   </component>
@@ -153,7 +227,23 @@
       <workItem from="1774013760090" duration="4868000" />
       <workItem from="1774245381309" duration="6707000" />
       <workItem from="1774252643825" duration="17319000" />
-      <workItem from="1774431594216" duration="33904000" />
+      <workItem from="1774431594216" duration="35115000" />
+      <workItem from="1774848040076" duration="160000" />
+      <workItem from="1774848222166" duration="91000" />
+      <workItem from="1774848330301" duration="303000" />
+      <workItem from="1774848650265" duration="196000" />
+      <workItem from="1774848861355" duration="329000" />
+      <workItem from="1774849208696" duration="36000" />
+      <workItem from="1774849260283" duration="77000" />
+      <workItem from="1774849350361" duration="214000" />
+      <workItem from="1774849624094" duration="537000" />
+      <workItem from="1774850177994" duration="75000" />
+      <workItem from="1774850265542" duration="294000" />
+      <workItem from="1774850573913" duration="218000" />
+      <workItem from="1774850807161" duration="1008000" />
+      <workItem from="1774852784937" duration="64000" />
+      <workItem from="1774852867206" duration="45000" />
+      <workItem from="1774852925947" duration="12246000" />
     </task>
     <task id="LOCAL-00001" summary="feat: establish project architecture and initial structure&#10;&#10;- Remove default Next.js setup and replace with custom structure based on Feature Slice Design.&#10;- Setup clear separation between client, admin, and backend layers.&#10;- Add Tailwind CSS for styling and integrate `prettier-plugin-tailwindcss`.&#10;- Introduce path aliases for improved imports (`tsconfig.json`).&#10;- Create foundational folders for `features`, `shared`, and `server`.&#10;- Add initial dummy pages for both client and admin areas.&#10;- Include project-specific organization guidelines in `README.md`.">
       <option name="closed" value="true" />
@@ -291,7 +381,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774614257051</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat: improve registration flow with session handling and validation updates&#10;&#10;- Update `registerAction` to include session creation via `setSession` after user registration.&#10;- Replace cookie management with session service for storing session tokens.&#10;- Refactor form validation error handling for improved consistency.&#10;- Update `FormState` type to align `form` error field handling.">
+      <option name="closed" value="true" />
+      <created>1774621101150</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1774621101150</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,6 +419,7 @@
     <MESSAGE value="feat: refactor user model and add authentication features&#10;&#10;- Replace `User` and `Post` tables with a new `users` table using a UUID-based `id` and updated fields.&#10;- Add Zod schemas (`LoginSchema`, `RegisterSchema`, `VerifySchema`) for auth validation.&#10;- Introduce reusable validation messages for consistent input error handling.&#10;- Add auth actions: `loginAction`, `registerAction`, `verifyAction`.&#10;- Rename and refactor `Routing` constants to `RoutingConstant`.&#10;- Update related components (`LoginForm`, `RegisterForm`) to use new constants and validation schemas.&#10;- Add `zod` dependency for schema validation." />
     <MESSAGE value="feat: modularize authentication feature and shared components&#10;&#10;- Restructure auth-related components under `features/auth`.&#10;- Migrate shared UI elements to `shared/ui`.&#10;- Decouple Zod schemas and actions; remove redundant auth-related schemas and actions.&#10;- Update imports to use new modular directory structure.&#10;- Refactor `LoginForm` and `RegisterForm` to integrate `useActionState` for improved state handling.&#10;- Update path aliases in `components.json` for consistency with the new structure." />
     <MESSAGE value="feat: add session management and enhance authentication flow&#10;&#10;- Add `Session` model with migrations, including unique token and foreign key reference to `User`.&#10;- Implement session services (`setSession`, `deleteSession`, `generateSessionMetadata`) for token-based authentication.&#10;- Update `User` model to include sessions as a relation.&#10;- Add password hashing and verification utilities using `bcrypt`.&#10;- Introduce shared form validation utility with Zod for consistent input validation." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add session management and enhance authentication flow&#10;&#10;- Add `Session` model with migrations, including unique token and foreign key reference to `User`.&#10;- Implement session services (`setSession`, `deleteSession`, `generateSessionMetadata`) for token-based authentication.&#10;- Update `User` model to include sessions as a relation.&#10;- Add password hashing and verification utilities using `bcrypt`.&#10;- Introduce shared form validation utility with Zod for consistent input validation." />
+    <MESSAGE value="feat: improve registration flow with session handling and validation updates&#10;&#10;- Update `registerAction` to include session creation via `setSession` after user registration.&#10;- Replace cookie management with session service for storing session tokens.&#10;- Refactor form validation error handling for improved consistency.&#10;- Update `FormState` type to align `form` error field handling." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: improve registration flow with session handling and validation updates&#10;&#10;- Update `registerAction` to include session creation via `setSession` after user registration.&#10;- Replace cookie management with session service for storing session tokens.&#10;- Refactor form validation error handling for improved consistency.&#10;- Update `FormState` type to align `form` error field handling." />
   </component>
 </project>

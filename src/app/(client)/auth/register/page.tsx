@@ -1,9 +1,9 @@
-import {Metadata} from "next";
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Register"
+    title: "Register page",
 }
 
 export default function RegisterPage() {
-    return <div>register page</div>
+    return <div>Register page</div>
 }

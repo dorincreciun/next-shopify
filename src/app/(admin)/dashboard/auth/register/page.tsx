@@ -1,10 +1,9 @@
-import {Metadata} from "next";
-import {RegisterForm} from "@/features/auth";
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Register"
+    title: "Register page",
 }
 
 export default function RegisterPage() {
-    return <RegisterForm />
+    return <div>Register page</div>
 }
