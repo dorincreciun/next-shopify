@@ -19,7 +19,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38c8567e-2980-4b13-8b4a-bcae45e00fe9" name="Changes" comment="fix: remove unused files and cleanup project structure&#10;&#10;- Remove obsolete authentication schemas, actions, and services no longer in use.&#10;- Delete redundant shared components and UI elements.&#10;- Remove `.idea` configuration files and unused SVG files.&#10;- Cleanup Tailwind, ESLint, and related configuration files.&#10;- Reduce clutter by eliminating dead code and unnecessary exports.">
+      <change afterPath="$PROJECT_DIR$/public/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/login/login-form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/sidebar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/register/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/auth/verify/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/dashboard/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/dashboard/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +40,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="76" />
+    <option name="cachedIndexableFilesCount" value="41" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -117,9 +130,9 @@
       <recent name="D:\next-shopify\src\app\(admin)\admin\dashboard\roles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\next-shopify\public" />
       <recent name="D:\next-shopify\src\app\(client)" />
       <recent name="D:\next-shopify\src\config\styles" />
-      <recent name="D:\next-shopify\public" />
       <recent name="D:\next-shopify\src\server" />
       <recent name="D:\next-shopify\src\features\auth\api" />
     </key>
@@ -166,7 +179,7 @@
       <workItem from="1774850807161" duration="1008000" />
       <workItem from="1774852784937" duration="64000" />
       <workItem from="1774852867206" duration="45000" />
-      <workItem from="1774852925947" duration="14848000" />
+      <workItem from="1774852925947" duration="28064000" />
     </task>
     <task id="LOCAL-00001" summary="feat: establish project architecture and initial structure&#10;&#10;- Remove default Next.js setup and replace with custom structure based on Feature Slice Design.&#10;- Setup clear separation between client, admin, and backend layers.&#10;- Add Tailwind CSS for styling and integrate `prettier-plugin-tailwindcss`.&#10;- Introduce path aliases for improved imports (`tsconfig.json`).&#10;- Create foundational folders for `features`, `shared`, and `server`.&#10;- Add initial dummy pages for both client and admin areas.&#10;- Include project-specific organization guidelines in `README.md`.">
       <option name="closed" value="true" />
@@ -320,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774870927065</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fix: remove unused files and cleanup project structure&#10;&#10;- Remove obsolete authentication schemas, actions, and services no longer in use.&#10;- Delete redundant shared components and UI elements.&#10;- Remove `.idea` configuration files and unused SVG files.&#10;- Cleanup Tailwind, ESLint, and related configuration files.&#10;- Reduce clutter by eliminating dead code and unnecessary exports.">
+      <option name="closed" value="true" />
+      <created>1774873492199</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1774873492200</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

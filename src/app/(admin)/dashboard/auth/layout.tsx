@@ -13,5 +13,9 @@ interface AuthLayout {
 }
 
 export default function AuthLayout({ children }: AuthLayout) {
-    return <>{children}</>
+    return (
+        <div>
+            <div className="absolute top-1/2 left-1/2 w-87.5 -translate-1/2">{children}</div>
+        </div>
+    )
 }
